@@ -96,6 +96,7 @@ public class PcapFileReaderWorker{
 
         }catch (NullPointerException e)
         {
+            System.out.println("PcapFileReaderWorker readPcapFileMy");
             System.out.println(e);
             temps.add(inputFile);
             return;
@@ -109,6 +110,7 @@ public class PcapFileReaderWorker{
                 }else{
                 }
             }catch(PcapClosedException e){
+//when you get a pcapClosedException,means that this packetReader is in the end,and you can`t call nextPacket() function.
                 System.out.println(e);
                 break;
             }
@@ -128,7 +130,7 @@ public class PcapFileReaderWorker{
     }
     public static void main(String[] args) {
         PcapFileReaderWorker pcapFileReaderWorker=new PcapFileReaderWorker(new File(""),"");
-        pcapFileReaderWorker.readPcapFileMy(args[0],args[1]);
+        pcapFileReaderWorker.readPcapFileMy("D:\\pcapResult\\csv\\platformPcapFeatures\\ruanjianyuan\\1.pcap",args[1]);
 //        pcapFileReaderWorker.pcapDirectoryReaderWorker("D:\\pcapResult\\csv\\platformPcapFeatures\\pcap","D:\\pcapResult\\csv\\platformPcapFeatures\\features");
 //        System.out.println(pcapFileReaderWorker.temps);
 //        C:\Users\guo\Desktop\pcapFeatures\CICFlowMeter-master\pcapTest\2013-08-16-Styx-EK-traffic.pcap   C:\Users\guo\Desktop\pcapFeatures\CICFlowMeter-master\pcapTest
